@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teste-Deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: primeiro-pod
+      labels: 
+        app: primeiro-pod
+    spec:
+      containers:
+        - name: test
+          image: nginx:1.14.2
+          ports:
+          - containerPort: 80
+  selector:
+    matchLabels:
+      app: primeiro-pod

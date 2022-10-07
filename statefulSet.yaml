@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sistem-statefulset
+spec:
+  replica: 3
+  template: 
+    metadata: 
+      labels: 
+        app: primeiro-pod 
+      name: primeiro-pod
+    espc:
+      constainers:
+        - name:
+          image:
+          ports:
+            -containerPort: 80
+          envFrom:
+            -configMapRef:
+              name: config
+          livenessProbe:
+            httpGet:
+              path: /
+              prot: 80
+            periodSeconds: 10
+            failureThreshold: 3
+            initialDelaySeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /
+              prot: 80
+            periodSeconds: 10
+            failureThreshold: 3
+            initialDelaySeconds: 3
+          resources:
+            requests:
+              cpu: 10m
+  selector:
+    matchLabels: 
+      app: primeiro-pod

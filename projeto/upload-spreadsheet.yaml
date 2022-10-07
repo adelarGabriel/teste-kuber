@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: upload-spreadsheet2
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: upload-spreadsheet2
+      name: upload-spreadsheet2
+    spec:
+      containers:
+      - name: test-api
+        image: facelessgod/test-api:1.0
+        ports:
+        - containerPort: 3000
+  selector:
+    matchLabels:
+      app: upload-spreadsheet2   
+      

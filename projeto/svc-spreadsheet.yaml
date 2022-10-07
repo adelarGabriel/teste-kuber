@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-spreadsheet
+spec:
+  externalTrafficPolicy: Local
+  type: NodePort
+  selector:
+    app: upload-spreadsheet2
+  ports:
+    - name: svc-spreadsheet
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+  # externalIPs:
+  #   - 177.166.0.1

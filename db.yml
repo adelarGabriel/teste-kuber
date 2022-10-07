@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db-teste
+  labels:
+    app: db-teste
+spec:
+  containers:
+    -name: db-teste
+    image: 
+    ports:
+      - containerPorts: 
+    # env:
+      # - name: QUALQUER_COISA
+      #   valueFrom:
+      #     configMapKeyRef:
+      #       name: teste-map
+      #       key: QUALQUER_COISA
+    envFrom:
+      - configMapRef:
+        name: teste-map

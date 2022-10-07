@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: teste-map
+data:
+  QUALQUER_COISA: qualquer_senha
+  QUALQUER_COISA2: qualquer_senha2

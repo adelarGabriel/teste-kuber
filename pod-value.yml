@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: pod
+metadata:
+  name: pod-value
+spec:
+  containers:
+    - name: ngix-container
+      image: ngix:latest
+      valueMounts: 
+        mountPath: /value-a-ser-criado
+        name: valume
+    - name: ngix-container
+      image: ngix:latest
+      valueMounts: 
+        mountPath: /value-a-ser-criado
+        name: valume
+  volumes:
+    - name: valume
+      hostPath:
+        path: /home/value-a-ser-criado
+        type: DirectoryOrCreate 
